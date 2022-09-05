@@ -5,10 +5,14 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import testbase.Pages;
 import testbase.TestBase;
+
+import java.time.Duration;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
@@ -27,13 +31,13 @@ public class AlertsTest extends TestBase {
         String text = driver.findElement(By.cssSelector("#simple-alert-label")).getText();
         String expectedText = "OK button pressed";
 
-        assertThat(text).isEqualTo(expectedText);
         logger.info("Tekst na stronie: " + text + " | Tekst oczekiwany: " + expectedText);
+        assertThat(text).isEqualTo(expectedText);
     }
 
     @Test
     @Tag("alert")
-    void checkTextOnPromptAlertBox(){
+    void checkTextOnPromptAlertBox() {
         driver.get(Pages.ALERTS_SELENIUM_UI);
         logger.info("Została otworzona strona: " + Pages.ALERTS_SELENIUM_UI);
 
@@ -45,13 +49,13 @@ public class AlertsTest extends TestBase {
         String text = driver.findElement(By.cssSelector("p#prompt-label")).getText();
         String expectedText = "Hello Lord Vader! How are you today?";
 
-        assertThat(text).isEqualTo(expectedText);
         logger.info("Tekst na stronie: " + text + " | Tekst oczekiwany: " + expectedText);
+        assertThat(text).isEqualTo(expectedText);
     }
 
     @Test
     @Tag("alert")
-    void checkCancelationText(){
+    void checkCancelationText() {
         driver.get(Pages.ALERTS_SELENIUM_UI);
         logger.info("Została otworzona strona: " + Pages.ALERTS_SELENIUM_UI);
 
@@ -64,12 +68,30 @@ public class AlertsTest extends TestBase {
         String text = driver.findElement(By.cssSelector("p#confirm-label")).getText();
         String expectedText = "You pressed Cancel!";
 
-        assertThat(text).isEqualTo(expectedText);
         logger.info("Tekst na stronie: " + text + " | Tekst oczekiwany: " + expectedText);
+        assertThat(text).isEqualTo(expectedText);
     }
 
-    //TODO
-    void checkDelayedButtonText(){
+    @Test
+    @Tag("alert")
+    void checkDelayedButtonText() {
+        driver.get(Pages.ALERTS_SELENIUM_UI);
+        logger.info("Została otworzona strona: " + Pages.ALERTS_SELENIUM_UI);
+
+        WebElement delayedButton = driver.findElement(By.cssSelector("button#delayed-alert"));
+        delayedButton.click();
+
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        if (wait.until(ExpectedConditions.alertIsPresent()) != null) {
+            driver.switchTo().alert().accept();
+            String text = driver.findElement(By.cssSelector("#delayed-alert-label")).getText();
+            String expectedText = "OK button pressed";
+            logger.info("Tekst na stronie: " + text + " | Tekst oczekiwany: " + expectedText);
+            assertThat(text).isEqualTo(expectedText);
+        } else {
+            logger.error("Alert is not present");
+        }
 
     }
 }
