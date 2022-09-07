@@ -1,7 +1,6 @@
 package testbase;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,7 +12,7 @@ import java.util.logging.Level;
 
 public class TestBase {
 
-    public static WebDriver driver;
+    public WebDriver driver;
 
     @BeforeAll
     static void setDriver() {
