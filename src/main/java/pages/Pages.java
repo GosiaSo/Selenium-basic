@@ -1,4 +1,4 @@
-package testbase;
+package pages;
 
 public class Pages {
     public static final String ALERTS_SELENIUM_UI = "https://seleniumui.moderntester.pl/alerts.php";
@@ -14,4 +14,10 @@ public class Pages {
     public static final String SELECTABLE_WIDGETS_SELENIUM_UI = "https://seleniumui.moderntester.pl/selectmenu.php";
     public static final String TOOLTIP_WIDGETS_SELENIUM_UI = "https://seleniumui.moderntester.pl/tooltip.php";
     public static final String SLIDER_WIDGETS_SELENIUM_UI = "https://seleniumui.moderntester.pl/slider.php";
+
+    public static final String DRAGGABLE_INTERACTIONS_SELENIUM_UI = "https://seleniumui.moderntester.pl/draggable.php";
+    public static final String DROPPABLE_INTERACTIONS_SELENIUM_UI = "https://seleniumui.moderntester.pl/droppable.php";
+
+
+    public static final String FORM_SELENIUM_UI = "https://seleniumui.moderntester.pl/form.php";
 }
