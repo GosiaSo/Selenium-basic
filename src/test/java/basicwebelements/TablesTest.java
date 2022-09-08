@@ -28,7 +28,7 @@ public class TablesTest extends TestBase {
         printInfo(filteredMountains);
     }
 
-    private List<Mountain> filterMountains(TablePage tablePage, int higherThan) {
+    List<Mountain> filterMountains(TablePage tablePage, int higherThan) {
         List<Mountain> filteredMountains = new ArrayList<>();
 
         List<RowPage> tablePageMountains = tablePage.getMountains();
@@ -46,9 +46,9 @@ public class TablesTest extends TestBase {
         return filteredMountains;
     }
 
-    private void printInfo(List<Mountain> mountains) {
+    void printInfo(List<Mountain> mountains) {
         for (Mountain mountain : mountains) {
-            System.out.println(mountain.toString());
+            logger.info(mountain.toString());
         }
     }
 
