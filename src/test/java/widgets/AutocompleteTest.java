@@ -17,6 +17,7 @@ public class AutocompleteTest extends TestBase {
     @Test
     @Tag("widgets")
     @Tag("autocomplete")
+    @Tag("regression")
     void checkSelectedOption() {
         driver.get(Pages.AUTOCOMPLETE_WIDGETS_SELENIUM_UI);
         logger.info("Została otworzona strona: " + Pages.AUTOCOMPLETE_WIDGETS_SELENIUM_UI);

@@ -17,6 +17,7 @@ public class MenuTest extends TestBase {
 
     @Test
     @Tag("widgets")
+    @Tag("regression")
     void clickOnMainMenu() {
 
         driver.get(Pages.MENU_WIDGETS_SELENIUM_UI);

@@ -18,6 +18,7 @@ public class WindowsTabsTest extends TestBase {
     @Test
     @Tag("windows")
     @Tag("tabs")
+    @Tag("regression")
     void openNewWindowsAndTabs() {
 
         driver.get(Pages.WINDOWS_SELENIUM_UI);

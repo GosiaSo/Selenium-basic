@@ -18,6 +18,7 @@ public class FormTest extends TestBase {
 
     @Test
     @Tag("form")
+    @Tag("regression")
     void checkTextAfterSendForm() {
         driver.get(Pages.FORM_SELENIUM_UI);
         logger.info("Została otworzona strona: " + Pages.FORM_SELENIUM_UI);

@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import testbase.Pages;
+import pages.Pages;
 import testbase.TestBase;
 
 import java.util.List;
@@ -18,6 +18,7 @@ public class TooltipTest extends TestBase {
     @Test
     @Tag("widgets")
     @Tag("tooltip")
+    @Tag("regression")
     void printMessage() {
         driver.get(Pages.TOOLTIP_WIDGETS_SELENIUM_UI);
         logger.info("Została otworzona strona: " + Pages.TOOLTIP_WIDGETS_SELENIUM_UI);

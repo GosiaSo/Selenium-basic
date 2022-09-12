@@ -18,6 +18,7 @@ public class TablesTest extends TestBase {
 
     @Test
     @Tag("tables")
+    @Tag("regression")
     void printInfoAboutMountains() {
         driver.get(Pages.TABLES_SELENIUM_UI);
         logger.info("Została otworzona strona: " + Pages.TABLES_SELENIUM_UI);

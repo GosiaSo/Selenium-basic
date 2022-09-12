@@ -21,6 +21,7 @@ public class AlertsTest extends TestBase {
 
     @Test
     @Tag("alert")
+    @Tag("regression")
     void checkTextOnSimpleAlertButton() {
         driver.get(Pages.ALERTS_SELENIUM_UI);
         logger.info("Została otworzona strona: " + Pages.ALERTS_SELENIUM_UI);
