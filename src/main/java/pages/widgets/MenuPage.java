@@ -6,9 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.time.Duration;
 import java.util.List;
 
 public class MenuPage {
@@ -27,6 +29,7 @@ public class MenuPage {
         for (WebElement mainCategory : mainCategories) {
             if (mainCategory.getText().toLowerCase().contains(category.toLowerCase())) {
                 mainCategory.click();
+                logger.info(mainCategory.getText() + " was clicked.");
                 return mainCategory;
             }
         }
@@ -34,14 +37,17 @@ public class MenuPage {
     }
 
     public WebElement clickOnAdditionalCategory(WebDriver driver, WebElement mainCategory, String category) {
-//        List<WebElement> categories = mainCategory.findElements(By.xpath(".//*"));
-        //TODO WAITY gdzieś tutaj:
-//        ExpectedConditions.visibilityOf(mainCategory.findElement(By.xpath("./ul/li")));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
         List<WebElement> categories = mainCategory.findElements(By.xpath("./ul/li"));
         for (WebElement selectedCategory : categories) {
+
+            wait.until(ExpectedConditions.elementToBeClickable(mainCategory.findElement(By.xpath("./ul/li"))));
             String text = selectedCategory.findElement(By.xpath("./div")).getText();
+
             if (text.toLowerCase().contains(category.toLowerCase())) {
                 selectedCategory.click();
+                logger.info(text + " was clicked.");
                 return selectedCategory;
             }
         }
