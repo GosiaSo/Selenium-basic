@@ -21,4 +21,5 @@ public class Pages {
 
 
     public static final String FORM_SELENIUM_UI = "https://seleniumui.moderntester.pl/form.php";
+    public static final String HIGHSITE_SELENIUM_UI = "https://seleniumui.moderntester.pl/high-site.php";
 }
