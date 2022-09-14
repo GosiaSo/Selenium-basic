@@ -11,18 +11,16 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class ProgressbarPage {
-
     public ProgressbarPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
-
     @FindBy(css = "#progressbar > div.progress-label")
     private WebElement progressbar;
 
-
-    public boolean getTextFromCompleteProgressbar(WebDriver driver, String textInProgress) {
+    public String getTextFromCompleteProgressbar(WebDriver driver, String textInProgress) {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        return wait.until(ExpectedConditions.textToBe(By.cssSelector("#progressbar > div.progress-label"), textInProgress)) ? Boolean.TRUE : Boolean.FALSE;
+        wait.until(ExpectedConditions.textToBe(By.cssSelector("#progressbar > div.progress-label"), textInProgress));
+        return progressbar.getText();
     }
 }

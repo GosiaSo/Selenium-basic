@@ -16,13 +16,15 @@ public class ProgressbarTest extends TestBase {
 
     @Test
     @Tag("widgets")
+    @Tag("regression")
     void checkTextInProgressbar() {
         driver.get(Pages.PROGRESSBAR_WIDGETS_SELENIUM_UI);
         logger.info("Została otworzona strona: " + Pages.PROGRESSBAR_WIDGETS_SELENIUM_UI);
 
         ProgressbarPage page = new ProgressbarPage(driver);
-        boolean isCompleteProgressbar = page.getTextFromCompleteProgressbar(driver, "Complete!");
+        String completeProgressbarText = page.getTextFromCompleteProgressbar(driver, "Complete!");
 
-        assertThat(isCompleteProgressbar).isEqualTo(Boolean.TRUE);
+        logger.info("Tekst na stronie: " + completeProgressbarText + " | Tekst oczekiwany: Complete!");
+        assertThat(completeProgressbarText).isEqualTo("Complete!");
     }
 }
