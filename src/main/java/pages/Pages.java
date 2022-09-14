@@ -18,6 +18,8 @@ public class Pages {
 
     public static final String DRAGGABLE_INTERACTIONS_SELENIUM_UI = "https://seleniumui.moderntester.pl/draggable.php";
     public static final String DROPPABLE_INTERACTIONS_SELENIUM_UI = "https://seleniumui.moderntester.pl/droppable.php";
+    public static final String RESIZABLE_INTERACTIONS_SELENIUM_UI = "https://seleniumui.moderntester.pl/resizable.php";
+    public static final String SELECTABLE_INTERACTIONS_SELENIUM_UI = "https://seleniumui.moderntester.pl/selectable.php";
 
 
     public static final String FORM_SELENIUM_UI = "https://seleniumui.moderntester.pl/form.php";
